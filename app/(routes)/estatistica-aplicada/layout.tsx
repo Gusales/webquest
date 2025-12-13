@@ -1,6 +1,4 @@
-import { DefaultHomeLayout } from "@/src/shared/layouts";
 import { Metadata } from "next";
-import { subject } from "./metadatas";
 
 export const metadata: Metadata = {
     title: {
@@ -9,8 +7,8 @@ export const metadata: Metadata = {
     }
 }
 
-export default function EstatisticaAplicadaDefaultLayout() {
+export default function EstatisticaAplicadaDefaultLayout({ children }: { children: React.ReactNode }) {
     return(
-        <DefaultHomeLayout subject={subject} semester="3º Semestre" />
+        <>{children}</>
     )
 }
