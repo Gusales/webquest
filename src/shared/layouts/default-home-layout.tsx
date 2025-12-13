@@ -3,7 +3,7 @@ import React from "react";
 import { Subject } from "../types";
 
 export interface IDefaultHomeLayoutProps {
-    children: React.ReactNode
+    children?: React.ReactNode
     subject: Subject
     semester?: string
 }
@@ -34,19 +34,27 @@ export const defaultHomeLayoutContent = {
 
 export type TypeDefaultHomeLayoutContent = typeof defaultHomeLayoutContent;
 
-export function DefaultHomeLayout(props: IDefaultHomeLayoutProps) {
+export function DefaultHomeLayout({ children, ...props }: IDefaultHomeLayoutProps) {
     return (
         <div className="min-h-screen w-full bg-gray-50">
             <Header title={props.subject.title} />
 
             <main className="container mx-auto px-4 py-12 text-gray-700">
-                <Container title={`WebQuest - ${props.subject.title}`} description={props.subject.introduction} />
-                <Container subtitle="Autor" description={{...defaultHomeLayoutContent.author, "Curso": `${defaultHomeLayoutContent.author["Curso"]} ${typeof props.semester !== 'undefined' ? '- ' + props.semester : ''}` }} />
-                <Container subtitle="Objetivos" description={defaultHomeLayoutContent.objectives.map(item => item.replace('[disciplina]', props.subject.title))} />
-                <Container subtitle="Tarefa" description={props.subject.task} />
-                <Container subtitle="Introdução" description={props.subject.introduction} />
-                <Container subtitle="Bibliografia" description={props.subject.bibliography} />
-                <Container subtitle="Conclusão" description={props.subject.conclusion} />
+                {
+                    typeof children === 'undefined' ? (
+                        <>
+                            <Container title={`WebQuest - ${props.subject.title}`} description={props.subject.introduction} />
+                            <Container subtitle="Autor" description={{ ...defaultHomeLayoutContent.author, "Curso": `${defaultHomeLayoutContent.author["Curso"]} ${typeof props.semester !== 'undefined' ? '- ' + props.semester : ''}` }} />
+                            <Container subtitle="Objetivos" description={defaultHomeLayoutContent.objectives.map(item => item.replace('[disciplina]', props.subject.title))} />
+                            <Container subtitle="Tarefa" description={props.subject.task} />
+                            <Container subtitle="Introdução" description={props.subject.introduction} />
+                            <Container subtitle="Conclusão" description={props.subject.conclusion} />
+                            <Container subtitle="Bibliografia" description={props.subject.bibliography} />
+                        </>
+                    ) : (
+                        <>{children}</>
+                    )
+                }
             </main>
         </div>
     )
@@ -101,9 +109,9 @@ export function Container(props: { title?: string, subtitle?: string, descriptio
                         {props.description.map((item, index) => (
                             ((item as string).includes("https")) ? (<li key={index}>{
                                 (item as string).slice(0, item.indexOf("https"))
-                            } <a href={(item as string).slice(item.indexOf("https"))} target="_blank" rel="noreferrer" className="hover:underline">
-                                {(item as string).slice(item.indexOf("https"))}
-                                </a> </li>) : ( <li key={index} >{item}</li> )
+                            } <a href={(item as string).slice(item.indexOf("https"))} target="_blank" rel="noreferrer" className="hover:underline text-indigo-800 font-semibold">
+                                    {(item as string).slice(item.indexOf("https"))}
+                                </a> </li>) : (<li key={index} >{item}</li>)
                         ))}
                     </ul>
                 )

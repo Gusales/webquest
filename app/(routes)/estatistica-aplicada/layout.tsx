@@ -9,8 +9,8 @@ export const metadata: Metadata = {
     }
 }
 
-export default function EstatisticaAplicadaDefaultLayout({ children }: { children: React.ReactNode }) {
+export default function EstatisticaAplicadaDefaultLayout() {
     return(
-        <DefaultHomeLayout subject={subject} semester="3º Semestre">{children}</DefaultHomeLayout>
+        <DefaultHomeLayout subject={subject} semester="3º Semestre" />
     )
 }

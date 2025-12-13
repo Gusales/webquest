@@ -1,6 +1,8 @@
+"use client"
 import { formatSubject } from "@/src/utils/subject-utils";
 import { Home } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import { IHeaderLinks, IHeaderProps } from "./header.interface";
 
 export const defaultLinks: IHeaderLinks[] = [
@@ -9,12 +11,14 @@ export const defaultLinks: IHeaderLinks[] = [
         link: "/[subject]/aulas"
     },
     {
-        name: "História",
-        link: "/[subject]/historia"
+        name: "Conteúdo",
+        link: "/[subject]/conteudo"
     }
 ]
 
 export function Header(props: IHeaderProps) {
+    const path = usePathname()
+
     function includesMoreLinks(): IHeaderLinks[] {
         return [...defaultLinks, ...props.links || []]
     }
@@ -35,15 +39,19 @@ export function Header(props: IHeaderProps) {
 
                 <nav>
                     <ul className="flex gap-10 text-lg">
-                        {includesMoreLinks().map(link => (
-                            <li key={link.name} className="group">
+                        {includesMoreLinks().map(link => {
+                            const includesNameOnPath = path.includes(link.link.split('/')[1] ? link.link.split('/')[1] : link.link)
+
+                            return (
+                                <li key={link.name} className="group">
                                 <Link
-                                    href={link.link.replace('[subject]', formatSubject(props.title).normalize("NFD").replace(/[\u0300-\u036f]/g, ""))}
+                                    href={link.link.replace('[subject]', formatSubject(props.title).normalize("NFD").replace(/[\u0300-\u036f]/g, ""))} className={includesNameOnPath ? "pointer-events-none text-white/80" : "group-hover:underline underline-offset-8"} aria-disabled={includesNameOnPath}
                                 >
-                                    <p className="group-hover:underline underline-offset-8">{link.name}</p>
+                                    <p>{link.name}</p>
                                 </Link>
                             </li>
-                        ))}
+                            )
+                        })}
                     </ul>
                 </nav>
             </div>
