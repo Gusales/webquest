@@ -1,6 +1,8 @@
 import { SubjectArticle } from "@/src/components/subject-article/subject-article";
 
 export default function Home() {
+  console.log(`[NEXT API URL] ${process.env.NEXT_PUBLIC_API_ROUTES_LINK}`)
+
   return (
     <div className="min-h-screen w-full bg-linear-to-br from-blue-50 to-indigo-100">
       <main className="container mx-auto px-4 py-16">
