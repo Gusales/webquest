@@ -43,5 +43,11 @@ export const subject: Subject = {
         "Intervalos Estatísticos para uma única Amostra - parte I - Intervalo de confiança para média - est.ufmg.br, https://est.ufmg.br/~marcosop/est031/aulas/Capitulo_8_1.pdf",
         "Intervalo de confiança para a Proporção populacional p - IME-USP, https://www.ime.usp.br/~lane/home/MAE0261/IC_Teste_Proporcao.pdf",
         "Intervalo de Confiança: o que é e como calcular na prática - Blog Opinion Box, https://blog.opinionbox.com/intervalo-de-confianca/"
+    ],
+    moreRedirectLinks: [
+        {
+            name: "Calculadora",
+            link: "/[subject]/calculadora",
+        }
     ]
 }

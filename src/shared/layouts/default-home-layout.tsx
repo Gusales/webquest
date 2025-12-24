@@ -7,7 +7,7 @@ export interface IDefaultHomeLayoutProps {
     children?: React.ReactNode
     subject: Subject
     semester?: string
-    showOnlyHeader?: boolean
+    showOnlyHeader?: boolean,
 }
 
 export const defaultHomeLayoutContent = {
@@ -39,7 +39,7 @@ export type TypeDefaultHomeLayoutContent = typeof defaultHomeLayoutContent;
 export function DefaultHomeLayout({ children, showOnlyHeader = false, ...props }: IDefaultHomeLayoutProps) {
     return (
         <div className="min-h-screen w-full bg-gray-50">
-            <Header title={props.subject.title} />
+            <Header title={props.subject.title} links={props.subject.moreRedirectLinks || []} />
 
             <main className="container mx-auto px-4 py-12 text-gray-700">
                 {

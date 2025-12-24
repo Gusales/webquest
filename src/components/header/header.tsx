@@ -44,12 +44,12 @@ export function Header(props: IHeaderProps) {
 
                             return (
                                 <li key={link.name} className="group">
-                                <Link
-                                    href={link.link.replace('[subject]', formatSubject(props.title).normalize("NFD").replace(/[\u0300-\u036f]/g, ""))} className={includesNameOnPath ? "pointer-events-none text-white/80" : "group-hover:underline underline-offset-8"} aria-disabled={includesNameOnPath}
-                                >
-                                    <p>{link.name}</p>
-                                </Link>
-                            </li>
+                                    <Link
+                                        href={link.link.replace('[subject]', formatSubject(props.title).normalize("NFD").replace(/[\u0300-\u036f]/g, ""))} className={includesNameOnPath ? "pointer-events-none text-white/80" : "group-hover:underline underline-offset-8"} aria-disabled={includesNameOnPath}
+                                    >
+                                        <p>{link.name}</p>
+                                    </Link>
+                                </li>
                             )
                         })}
                     </ul>

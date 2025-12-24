@@ -120,7 +120,7 @@ export default function EstatisticaAplicadaConteudo() {
                         <li>Calcula-se a <strong>Amplitude Total (AT):</strong> X<sub>(max)</sub> - X<sub>(min)</sub>.</li>
                         <li>Define-se o número de classes (n). A <strong>Regra de Sturges</strong> é uma diretriz comum: <em>n = 1 + 3.3log(N)</em>.</li>
                         <li>Calcula-se a <strong>Amplitude do Intervalo de Classe (Ai):</strong> AT / n.</li>
-                        <li><strong>Ponto Médio (xi):</strong> Para fins de cálculo de médias e desvios em dados agrupados, assume-se que todas as observações de uma classe estão concentradas no seu ponto médio (média entre o limite inferior e superior da classe). Esta suposição simplificadora permite o processamento estatístico, introduzindo um erro de agrupamento geralmente negligenciável.<sup>6</sup></li>
+                        <li><strong>Ponto Médio (xi):</strong> Para fins de cálculo de médias e desvios em dados agrupados, assume-se que todas as observações de uma classe estão concentradas no seu ponto médio (média entre o limite inferior e superior da classe). Esta suposição simplificadora permite o processamento estatístico, introduzindo um erro de agrupamento geralmente negligenciável.</li>
                     </ul>
                 </Paragraph>
 
@@ -239,7 +239,7 @@ export default function EstatisticaAplicadaConteudo() {
                 <HeadingFour>6.3.2. Distribuição de Poisson</HeadingFour>
 
                 <Paragraph>
-                   Modela a ocorrência de eventos raros ou aleatórios em um contínuo (tempo, área, volume). É frequentemente derivada da Binomial quando n→∞ e p→0, mantendo a média constante.
+                    Modela a ocorrência de eventos raros ou aleatórios em um contínuo (tempo, área, volume). É frequentemente derivada da Binomial quando n→∞ e p→0, mantendo a média constante.
                 </Paragraph>
 
                 <Paragraph>
@@ -251,7 +251,7 @@ export default function EstatisticaAplicadaConteudo() {
                 </Paragraph>
 
                 <HeadingThree>6.4. Distribuições Contínuas: A Distribuição Normal</HeadingThree>
-                
+
                 <Paragraph>
                     A Distribuição Normal (ou Gaussiana) é a pedra angular da estatística. Inúmeros fenômenos naturais (altura, erros de medida, pressão sanguínea) seguem este padrão.
                 </Paragraph>
