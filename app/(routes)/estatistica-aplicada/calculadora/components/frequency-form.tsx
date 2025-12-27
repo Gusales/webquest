@@ -41,7 +41,7 @@ export function FrequencyForm(props: IFormProps) {
                     className="w-full border border-gray-300 rounded-lg p-3 focus:outline-2 focus:outline-indigo-500 focus:border-transparent"
                     rows={4}
                     value={sample}
-                    onChange={(e) => setSample(`${e.target.value.replace(/[^0-9]/gi, "")}`)}
+                    onChange={(e) => setSample(`${e.target.value.replace(/[^0-9, ]/gi, "")}`)}
                     inputMode="numeric"
                 ></textarea>
             </div>

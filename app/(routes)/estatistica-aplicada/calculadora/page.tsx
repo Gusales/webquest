@@ -8,7 +8,7 @@ export default function CalculadoraPage() {
         <DefaultHomeLayout subject={subject} semester="3º Semestre" showOnlyHeader>
             <Breadcumbs />
 
-            <section className="container mx-auto bg-white rounded shadow p-8 mt-4">
+            <section className="container mx-auto bg-white rounded shadow p-8 mt-4 overflow-hidden">
                 <h2 className="text-3xl mb-4 text-indigo-900">Calculadora de Distribuição de Frequências</h2>
 
                 <div className="w-full bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">

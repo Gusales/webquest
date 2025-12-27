@@ -6,4 +6,6 @@ export type Frequency = {
     "xi": number
     "fri": number
     "pi": number
+    "fixi": number
+    "fixi2": number
 }
