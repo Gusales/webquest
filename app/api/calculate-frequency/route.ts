@@ -6,9 +6,16 @@ export async function GET(request: NextRequest) {
     const samples = searchParams.get("samples")
 
     if (samples) {
-        const request = await fetch(`${process.env.AWS_API_URL}?samples=${samples}`)
+        const request = await fetch(`${process.env.AWS_API_URL}`, {
+            body: JSON.stringify({ samples }),
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            }
+        })
 
         const response = (await request.json()) as IApiResponse<ICalculateResponse>
+
 
         const { data } = response
 
